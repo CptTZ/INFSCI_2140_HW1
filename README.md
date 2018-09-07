@@ -8,7 +8,7 @@ In your console, type:
 ./mvnw package
 ```
 
-Then you can find the output JAR file in `target` folder.
+Then it will run all the tests and if all passed, you can find the output **runnable** JAR file in the `target` folder.
 
 ### Build environment
 
