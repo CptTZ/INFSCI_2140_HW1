@@ -19,3 +19,15 @@ Then it will run all the tests and if all passed, you can find the output **runn
 ## Unit Test
 
 It is enforced and this project is test-driven, by using JUnit 5.3.
+
+## Information on external libraries
+
+Although there is a `pom.xml` and there seems to be a lot of dependencies, in the packed file there are only classes that are covered in this source code. Therefore that means it **DOES NOT** use any external libraries.
+
+## Notes
+
+This homework relies heavily on specifications of **Java 1.8**, so JDK8 is a must!
+
+## Reference
+
+- Delimiters come from WEKA - <https://github.com/Waikato/weka-trunk/blob/master/weka/src/main/java/weka/core/tokenizers/CharacterDelimitedTokenizer.java>

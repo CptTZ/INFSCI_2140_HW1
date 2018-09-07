@@ -42,7 +42,7 @@ public class StopWordRemover {
     private void initStopWords(String path) throws IOException {
         Path p = Paths.get(".//" + path);
         // Auto-close
-        try (Stream<String> lines = Files.lines(p)) {
+        try (Stream<String> lines = Files.lines(p, Util.nioUTF8Charset)) {
             lines.forEach(s -> this.stopWords.add(s.trim()));
         }
     }
