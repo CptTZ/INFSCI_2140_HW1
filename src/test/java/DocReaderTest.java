@@ -1,6 +1,7 @@
 import Classes.Util;
 import PreProcessData.TrectextCollection;
 import PreProcessData.TrecwebCollection;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -66,6 +67,20 @@ public class DocReaderTest {
             fail("TrectextCollection read failed\n" + Util.expectionToFullString(o));
         } catch (Exception e) {
             fail("TrectextCollection failed\n" + Util.expectionToFullString(e));
+        }
+    }
+
+    @Test
+    @AfterEach
+    @Disabled
+    void textWebReadAllTest() {
+        try {
+            for (; this.tt.nextDocument() != null; ) ;
+            for (; this.tw.nextDocument() != null; ) ;
+        } catch (IOException o) {
+            fail("Read all failed\n" + Util.expectionToFullString(o));
+        } catch (Exception e) {
+            fail("Read all failed\n" + Util.expectionToFullString(e));
         }
     }
 
