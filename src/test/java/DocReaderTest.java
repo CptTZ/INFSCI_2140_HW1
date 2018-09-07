@@ -2,6 +2,7 @@ import Classes.Util;
 import PreProcessData.TrectextCollection;
 import PreProcessData.TrecwebCollection;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

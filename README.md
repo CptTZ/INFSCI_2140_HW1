@@ -17,4 +17,4 @@ Then it will run all the tests and if all passed, you can find the output **runn
 
 ## Unit Test
 
-It is enforced, by using JUnit 5.3.
+It is enforced and this project is test-driven, by using JUnit 5.3.
