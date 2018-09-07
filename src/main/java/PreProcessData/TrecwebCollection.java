@@ -57,7 +57,7 @@ public class TrecwebCollection implements DocumentCollection {
             StringBuilder sb = new StringBuilder();
             String thisDocNo = "Unknown";
             // Just read, determine end later
-            for (; ; data = this.trecWebReader.readLine()) {
+            for (; (data = this.trecWebReader.readLine()) != null; ) {
                 Matcher m = this.docNoPattern.matcher(data);
                 if (m.matches()) thisDocNo = m.group(1).trim();
                 // Header ends and html data begins
@@ -65,6 +65,7 @@ public class TrecwebCollection implements DocumentCollection {
                     while (!(data = this.trecWebReader.readLine()).equals("</DOC>")) {
                         sb.append(data.trim());
                     }
+                    // HTML data finished reading, goto next doc
                     break;
                 }
             }

@@ -71,7 +71,6 @@ public class DocReaderTest {
     }
 
     @Test
-    @AfterEach
     @Disabled
     void textWebReadAllTest() {
         try {
