@@ -12,7 +12,8 @@ Then it will run all the tests and if all passed, you can find the output **runn
 
 ### Build environment
 
-- OracleJDK 10.0.2
+- Windows 10 x64
+- OpenJDK 1.8.181
 - Maven 3.5.4 (With wrapper)
 
 ## Unit Test

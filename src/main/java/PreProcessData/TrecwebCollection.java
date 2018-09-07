@@ -53,7 +53,7 @@ public class TrecwebCollection implements DocumentCollection {
         while ((data = this.trecWebReader.readLine()) != null) {
             // Locate the document start
             if (!data.equals("<DOC>")) continue;
-            var thisDocument = new HashMap<String, Object>();
+            Map<String, Object> thisDocument = new HashMap<String, Object>();
             StringBuilder sb = new StringBuilder();
             String thisDocNo = "Unknown";
             // Just read, determine end later

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,10 +33,10 @@ public class DocReaderTest {
     @Test
     void WebReadTest() {
         try {
-            var d1 = this.tw.nextDocument();
-            var d2 = this.tw.nextDocument();
-            var d1id = d1.keySet().iterator().next();
-            var d2id = d2.keySet().iterator().next();
+            Map<String, Object> d1 = this.tw.nextDocument();
+            Map<String, Object> d2 = this.tw.nextDocument();
+            String d1id = d1.keySet().iterator().next();
+            String d2id = d2.keySet().iterator().next();
             assertEquals(d1id, "lists-000-0000000");
             assertEquals(d2id, "lists-000-0012197");
             assertTrue(((String) d1.get(d1id)).contains("February-March 1997: Development of a Perl script/hypermail (1.x)"));
@@ -53,10 +54,10 @@ public class DocReaderTest {
     @Test
     void TextReadTest() {
         try {
-            var d1 = this.tt.nextDocument();
-            var d2 = this.tt.nextDocument();
-            var d1id = d1.keySet().iterator().next();
-            var d2id = d2.keySet().iterator().next();
+            Map<String, Object> d1 = this.tt.nextDocument();
+            Map<String, Object> d2 = this.tt.nextDocument();
+            String d1id = d1.keySet().iterator().next();
+            String d2id = d2.keySet().iterator().next();
             assertEquals(d1id, "XIE19960101.0001");
             assertEquals(d2id, "XIE19960101.0002");
             assertTrue(((String) d1.get(d1id)).contains("accomplishment of Jordan's foreign policy."));

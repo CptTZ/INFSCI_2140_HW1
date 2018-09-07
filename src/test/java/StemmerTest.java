@@ -7,8 +7,8 @@ class StemmerTest {
 
     @Test
     void basicStemmerTest() {
-        var s = new Stemmer();
-        var word = "distention".toCharArray();
+        Stemmer s = new Stemmer();
+        char[] word = "distention".toCharArray();
         s.add(word, word.length);
         s.stem();
         assertEquals(s.toString(), "distent");
