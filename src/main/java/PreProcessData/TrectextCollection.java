@@ -58,7 +58,7 @@ public class TrectextCollection implements DocumentCollection {
                 // Text data begins
                 if (data.equals("<TEXT>")) {
                     while (!(data = this.trecTextReader.readLine()).equals("</TEXT>")) {
-                        sb.append(data.trim());
+                        sb.append(data);
                     }
                 }
             }

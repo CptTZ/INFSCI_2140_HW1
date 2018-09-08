@@ -63,7 +63,7 @@ public class TrecwebCollection implements DocumentCollection {
                 // Header ends and html data begins
                 if (data.equals("</DOCHDR>")) {
                     while (!(data = this.trecWebReader.readLine()).equals("</DOC>")) {
-                        sb.append(data.trim());
+                        sb.append(data);
                     }
                     // HTML data finished reading, goto next doc
                     break;

@@ -14,12 +14,12 @@ public class WordTokenizer {
     /**
      * Reference from WEKA3
      */
-    private String wekaDelimiters = " \r\n\t.,;:'\"()?!";
+    private String wekaDelimiters = " \r\n\t.,;:\"()?!";
 
     /**
      * Extra delimiters by inferring results
      */
-    private String extraDelimiters = "-+*/[]";
+    private String extraDelimiters = "-+*/[]_";
 
     /**
      * Tokenize the input texts
@@ -36,19 +36,18 @@ public class WordTokenizer {
         while (this.sTokenizer.hasMoreTokens()) {
             char[] cand = this.sTokenizer.nextToken().toCharArray();
             // Don't return a word that all inside it are digits
-            if (isCharArrayGood(cand)) continue;
+            if (isCharArrayAllDigit(cand)) continue;
             return cand;
         }
         return null;
     }
 
     /**
-     * Filter out char array that doesn't meet our requirements
+     * Filter out char array that only have digits
      */
-    private boolean isCharArrayGood(char[] test) {
+    private boolean isCharArrayAllDigit(char[] test) {
         for (char cTest : test) {
-            if (!Character.isDigit(cTest)
-                    || !Character.isLetter(cTest)) {
+            if (!Character.isDigit(cTest)) {
                 return false;
             }
         }
