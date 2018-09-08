@@ -35,7 +35,6 @@ public class WordTokenizer {
     public char[] nextWord() {
         while (this.sTokenizer.hasMoreTokens()) {
             char[] cand = this.sTokenizer.nextToken().toCharArray();
-            // Don't return a word that all inside it are digits
             if (hasNonLetterInCharArray(cand)) continue;
             return cand;
         }

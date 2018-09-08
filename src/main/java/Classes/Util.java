@@ -10,17 +10,17 @@ public class Util {
     /**
      * UTF-8 Charset for NIO
      */
-    public static Charset nioUTF8Charset = Charset.forName("UTF-8");
+    public static final Charset nioUTF8Charset = Charset.forName("UTF-8");
 
     /**
      * Compiled HTML tags regex
      */
-    public static Pattern htmlTagPattern = Pattern.compile("<.+?>");
+    public static final Pattern htmlTagPattern = Pattern.compile("<.+?>");
 
     /**
      * Compiled DOCNO regex
      */
-    public static Pattern docNoPattern = Pattern.compile("<DOCNO>(.*)</DOCNO>");
+    public static final Pattern docNoPattern = Pattern.compile("<DOCNO>(.*)</DOCNO>");
 
     /**
      * Convert expection to normal output string for debugging

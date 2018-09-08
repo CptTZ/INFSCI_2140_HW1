@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 
 /**
@@ -57,7 +56,7 @@ public class TrecwebCollection implements DocumentCollection {
             StringBuilder sb = new StringBuilder();
             String thisDocNo = "Unknown";
             // Just read, determine end later
-            for (; (data = this.trecWebReader.readLine()) != null; ) {
+            while ((data = this.trecWebReader.readLine()) != null) {
                 Matcher m = this.docNoPattern.matcher(data);
                 if (m.matches()) thisDocNo = m.group(1).trim();
                 // Header ends and html data begins
