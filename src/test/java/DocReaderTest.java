@@ -72,7 +72,6 @@ public class DocReaderTest {
     }
 
     @Test
-    @Disabled
     void textWebReadAllTest() {
         try {
             for (; this.tt.nextDocument() != null; ) ;
