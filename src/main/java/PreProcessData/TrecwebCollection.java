@@ -86,7 +86,7 @@ public class TrecwebCollection implements DocumentCollection {
         if (s == null || s.length() == 0) {
             return "";
         }
-        return Util.htmlTagPattern.matcher(s).replaceAll("");
+        return Util.htmlTagPattern.matcher(s).replaceAll(" ");
     }
 
 }
