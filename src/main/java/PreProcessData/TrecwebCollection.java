@@ -53,7 +53,7 @@ public class TrecwebCollection implements DocumentCollection {
         while ((data = this.trecWebReader.readLine()) != null) {
             // Locate the document start
             if (!data.equals("<DOC>")) continue;
-            Map<String, Object> thisDocument = new HashMap<String, Object>();
+            Map<String, Object> thisDocument = new HashMap<>();
             StringBuilder sb = new StringBuilder();
             String thisDocNo = "Unknown";
             // Just read, determine end later
@@ -69,7 +69,7 @@ public class TrecwebCollection implements DocumentCollection {
                     break;
                 }
             }
-            thisDocument.put(thisDocNo, removeHtmlTags(sb.toString()));
+            thisDocument.put(thisDocNo, removeHtmlTags(sb.toString()).toCharArray());
             // Finished reading document, return it
             return thisDocument;
         }
@@ -84,7 +84,7 @@ public class TrecwebCollection implements DocumentCollection {
      */
     private String removeHtmlTags(String s) {
         if (s == null || s.length() == 0) {
-            return s;
+            return "";
         }
         return Util.htmlTagPattern.matcher(s).replaceAll("");
     }
