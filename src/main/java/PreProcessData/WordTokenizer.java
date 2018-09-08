@@ -19,7 +19,7 @@ public class WordTokenizer {
     /**
      * Extra delimiters by inferring results
      */
-    private String extraDelimiters = "-";
+    private String extraDelimiters = "-+*/[]";
 
     /**
      * Tokenize the input texts
@@ -33,11 +33,26 @@ public class WordTokenizer {
      * Output the next word
      */
     public char[] nextWord() {
-        if (this.sTokenizer.hasMoreTokens()) {
-            return this.sTokenizer.nextToken().toCharArray();
-        } else {
-            return null;
+        while (this.sTokenizer.hasMoreTokens()) {
+            char[] cand = this.sTokenizer.nextToken().toCharArray();
+            // Don't return a word that all inside it are digits
+            if (isCharArrayGood(cand)) continue;
+            return cand;
         }
+        return null;
+    }
+
+    /**
+     * Filter out char array that doesn't meet our requirements
+     */
+    private boolean isCharArrayGood(char[] test) {
+        for (char cTest : test) {
+            if (!Character.isDigit(cTest)
+                    || !Character.isLetter(cTest)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
