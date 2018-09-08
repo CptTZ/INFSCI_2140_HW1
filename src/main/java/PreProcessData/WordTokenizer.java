@@ -36,22 +36,24 @@ public class WordTokenizer {
         while (this.sTokenizer.hasMoreTokens()) {
             char[] cand = this.sTokenizer.nextToken().toCharArray();
             // Don't return a word that all inside it are digits
-            if (isCharArrayAllDigit(cand)) continue;
+            if (hasNonLetterInCharArray(cand)) continue;
             return cand;
         }
         return null;
     }
 
     /**
-     * Filter out char array that only have digits
+     * Filter out char array that has non-letters
      */
-    private boolean isCharArrayAllDigit(char[] test) {
+    private boolean hasNonLetterInCharArray(char[] test) {
         for (char cTest : test) {
-            if (!Character.isDigit(cTest)) {
-                return false;
+            // Allow single quote as special one
+            if (cTest == '\'') continue;
+            if (!Character.isLetter(cTest)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 }

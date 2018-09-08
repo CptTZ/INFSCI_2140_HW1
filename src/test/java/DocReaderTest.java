@@ -74,8 +74,11 @@ public class DocReaderTest {
     @Test
     void textWebReadAllTest() {
         try {
-            for (; this.tt.nextDocument() != null; ) ;
-            for (; this.tw.nextDocument() != null; ) ;
+            int count;
+            for (count = 0; this.tt.nextDocument() != null; count++) ;
+            assertEquals(count, 503473);
+            for (count = 0; this.tw.nextDocument() != null; count++) ;
+            assertEquals(count, 198361);
         } catch (IOException o) {
             fail("Read all failed\n" + Util.expectionToFullString(o));
         } catch (Exception e) {

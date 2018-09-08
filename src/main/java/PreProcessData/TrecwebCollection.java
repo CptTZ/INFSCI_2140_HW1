@@ -64,6 +64,7 @@ public class TrecwebCollection implements DocumentCollection {
                 if (data.equals("</DOCHDR>")) {
                     while (!(data = this.trecWebReader.readLine()).equals("</DOC>")) {
                         sb.append(data);
+                        sb.append(' ');
                     }
                     // HTML data finished reading, goto next doc
                     break;
@@ -84,7 +85,7 @@ public class TrecwebCollection implements DocumentCollection {
      */
     private String removeHtmlTags(String s) {
         if (s == null || s.length() == 0) {
-            return "";
+            return " ";
         }
         return Util.htmlTagPattern.matcher(s).replaceAll(" ");
     }
