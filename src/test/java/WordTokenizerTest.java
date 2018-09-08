@@ -9,13 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WordTokenizerTest {
 
-    private WordTokenizer wt,wt1,wt2;
+    private WordTokenizer wt, wt1, wt2;
 
     @Test
     @BeforeEach
     void initTest() {
         this.wt = new WordTokenizer("anti-Iraq coalition during the Gulf crisis, was symbolized by the".toCharArray());
         this.wt1 = new WordTokenizer("1,600\ngovernment officials".toCharArray());
+        this.wt2 = new WordTokenizer("Acknowledgments \n \n  Why Hypermess?".toCharArray());
     }
 
     @Test
@@ -44,6 +45,20 @@ public class WordTokenizerTest {
         assertFalse(allTok.contains("600"));
         assertFalse(allTok.contains("1"));
         assertFalse(allTok.contains("600government"));
+    }
+
+    @Test
+    void token3Test() {
+        char[] tok;
+        List<String> allTok = new LinkedList<>();
+        while ((tok = this.wt2.nextWord()) != null) {
+            allTok.add(String.valueOf(tok));
+            System.out.println(tok);
+        }
+        assertEquals(allTok.size(), 3);
+        assertTrue(allTok.contains("Acknowledgments"));
+        assertTrue(allTok.contains("Why"));
+        assertTrue(allTok.contains("Hypermess"));
     }
 
 }
