@@ -25,7 +25,8 @@ public class WordTokenizer {
      * Tokenize the input texts
      */
     public WordTokenizer(char[] texts) {
-        this.sTokenizer = new StringTokenizer(String.valueOf(texts), this.wekaDelimiters + this.extraDelimiters);
+        this.sTokenizer = new StringTokenizer(
+                String.valueOf(texts), this.wekaDelimiters + this.extraDelimiters);
     }
 
     /**

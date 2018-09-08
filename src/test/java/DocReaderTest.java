@@ -43,6 +43,7 @@ public class DocReaderTest {
             assertTrue(((String) d1.get(d1id)).contains("February-March 1997: Development of a Perl script/hypermail (1.x)"));
             assertTrue(((String) d2.get(d2id)).contains("daigo matsubara"));
             // No HTML tags
+            assertFalse(((String) d1.get(d1id)).contains("<!-- isoreceived"));
             assertFalse(((String) d1.get(d1id)).contains("href=\"http://www.hypermail.org/\">"));
             assertFalse(((String) d2.get(d2id)).contains("</candidate-0022>"));
         } catch (IOException o) {

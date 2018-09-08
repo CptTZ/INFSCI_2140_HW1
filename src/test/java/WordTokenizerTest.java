@@ -2,7 +2,8 @@ import PreProcessData.WordTokenizer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,15 +20,15 @@ public class WordTokenizerTest {
     @Test
     void tokenTest() {
         char[] tok;
-        ArrayList<char[]> allTok = new ArrayList<>();
+        List<String> allTok = new LinkedList<>();
         while ((tok = this.wt.nextWord()) != null) {
-            allTok.add(tok);
+            allTok.add(String.valueOf(tok));
             System.out.println(tok);
         }
-        assertTrue(allTok.contains("anti".toCharArray()));
-        assertTrue(allTok.contains("Iraq".toCharArray()));
-        assertTrue(allTok.contains("was".toCharArray()));
-        assertFalse(allTok.contains("anti-Iraq".toCharArray()));
+        assertTrue(allTok.contains("anti"));
+        assertTrue(allTok.contains("Iraq"));
+        assertTrue(allTok.contains("was"));
+        assertFalse(allTok.contains("anti-Iraq"));
     }
 
 }
